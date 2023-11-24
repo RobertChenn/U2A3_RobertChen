@@ -51,8 +51,8 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="dimension1Prompt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="dimension1" min="-2" pref="93" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="dimension1" min="-2" pref="99" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="dimension3Prompt" min="-2" max="-2" attributes="0"/>
@@ -130,34 +130,30 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="dimension1Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="dimension1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="dimension2Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="dimension2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="add" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dimension3Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dimension3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="add" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="dimension3Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dimension3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dimension4Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dimension4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="dimension4Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dimension4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -182,7 +178,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="210" max="-2" attributes="0"/>
-                              <EmptySpace pref="27" max="32767" attributes="0"/>
+                              <EmptySpace pref="35" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="calculate" min="-2" max="-2" attributes="0"/>
@@ -227,36 +223,57 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Rectangle"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rectangleActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="parallelogram">
       <Properties>
         <Property name="text" type="java.lang.String" value="Parallelogram"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="parallelogramActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="triangle">
       <Properties>
         <Property name="text" type="java.lang.String" value="Triangle"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="triangleActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="circle">
       <Properties>
         <Property name="text" type="java.lang.String" value="Circle"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="circleActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="donut">
       <Properties>
         <Property name="text" type="java.lang.String" value="Donut"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="donutActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="trapezoid">
       <Properties>
         <Property name="text" type="java.lang.String" value="Trapezoid"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trapezoidActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="house">
       <Properties>
         <Property name="text" type="java.lang.String" value="House"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="houseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="title">
       <Properties>
