@@ -10,6 +10,7 @@ package com.mycompany.u1a3_robertchen;
  */
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 import javax.swing.*;
 public class TilePriceCalculatorApp extends javax.swing.JFrame {
 
@@ -27,7 +28,9 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         group.add(trapezoid);
         group.add(house);
     }
-    int test = 0;
+    String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput;
+    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI;
+    ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,6 +160,11 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         pricePrompt.setText("Price per Metre Squared:");
 
         add.setText("Add");
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
 
         remove.setText("Remove");
 
@@ -324,6 +332,10 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Width:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setEditable(false);
+        dimension4.setEditable(false);
+        dimensionTh = 0;
+        dimensionF = 0;
     }//GEN-LAST:event_rectangleActionPerformed
 
     private void parallelogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parallelogramActionPerformed
@@ -331,6 +343,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setEditable(false);
+        dimension4.setEditable(false);
     }//GEN-LAST:event_parallelogramActionPerformed
 
     private void triangleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_triangleActionPerformed
@@ -338,6 +352,10 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setEditable(false);
+        dimension4.setEditable(false);
+        dimensionTh = 0;
+        dimensionF = 0;
     }//GEN-LAST:event_triangleActionPerformed
 
     private void circleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circleActionPerformed
@@ -345,6 +363,12 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("N/A");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension2.setEditable(false);
+        dimension3.setEditable(false);
+        dimension4.setEditable(false);
+        dimensionTw = 0;
+        dimensionTh = 0;
+        dimensionF = 0;
     }//GEN-LAST:event_circleActionPerformed
 
     private void donutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donutActionPerformed
@@ -352,6 +376,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Radius of Outer Circle:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimensionTh = 0;
+        dimensionF = 0;
     }//GEN-LAST:event_donutActionPerformed
 
     private void trapezoidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trapezoidActionPerformed
@@ -359,6 +385,7 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Base (b):");
         dimension3Prompt.setText("Height:");
         dimension4Prompt.setText("N/A");
+        dimensionF = 0;
     }//GEN-LAST:event_trapezoidActionPerformed
 
     private void houseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_houseActionPerformed
@@ -367,6 +394,31 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension3Prompt.setText("Length of House");
         dimension4Prompt.setText("Width of House");
     }//GEN-LAST:event_houseActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        dimension1Input = dimension1.getText();
+        dimension2Input = dimension2.getText();
+        dimension3Input = dimension3.getText();
+        dimension4Input = dimension4.getText();
+        priceInput = price.getText();
+        dimensionO = Integer.parseInt(dimension1Input);
+        dimensionTw = Integer.parseInt(dimension2Input);
+        dimensionTh = Integer.parseInt(dimension3Input);
+        dimensionF = Integer.parseInt(dimension4Input);
+        priceI = Integer.parseInt(priceInput);
+        
+        try {
+            output.setText("");
+            if (dimensionO > 0 && dimensionTw > 0 && dimensionTh > 0 && dimensionF > 0 && 
+                    priceI > 0) {
+                
+            } else {
+                output.setText("Invalid input. Please enter a positive number.");
+            }
+        } catch (Exception e) {
+            output.setText("Invalid input. Please enter a positive number and fill out all required fields.");
+        }
+    }//GEN-LAST:event_addActionPerformed
 
     /**
      * @param args the command line arguments
