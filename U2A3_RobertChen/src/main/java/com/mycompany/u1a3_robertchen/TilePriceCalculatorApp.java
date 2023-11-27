@@ -27,6 +27,7 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         group.add(trapezoid);
         group.add(house);
     }
+    int test = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
