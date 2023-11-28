@@ -11,6 +11,13 @@ package com.mycompany.u1a3_robertchen;
 public class Triangle extends Shape{
     private double base;
     private double height;
+    private int id;
+    
+    public Triangle(double base, double height, int id) {
+        this.base = base;
+        this.height = height;
+        this.id = id;
+    }
     
     @Override
     public double getArea() {

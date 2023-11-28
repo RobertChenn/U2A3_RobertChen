@@ -29,7 +29,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         group.add(house);
     }
     String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput;
-    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI;
+    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, length, width;
+    int id;
     ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     /**
@@ -142,10 +143,12 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         calculate.setText("Calculate");
 
         totalArea.setEditable(false);
+        totalArea.setEnabled(false);
 
         totalAreaPrompt.setText("Total Area:");
 
         totalCost.setEditable(false);
+        totalCost.setEnabled(false);
 
         totalCostPrompt.setText("Total Cost:");
 
@@ -332,10 +335,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Width:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
-        dimension3.setEditable(false);
-        dimension4.setEditable(false);
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(true);
+        dimension3.setEnabled(false);
+        dimension4.setEnabled(false);
         dimensionTh = 0;
         dimensionF = 0;
+        rectangle.setActionCommand("rectangle");
     }//GEN-LAST:event_rectangleActionPerformed
 
     private void parallelogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parallelogramActionPerformed
@@ -343,8 +349,11 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
-        dimension3.setEditable(false);
-        dimension4.setEditable(false);
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(true);
+        dimension3.setEnabled(false);
+        dimension4.setEnabled(false);
+        parallelogram.setActionCommand("parallelogram");
     }//GEN-LAST:event_parallelogramActionPerformed
 
     private void triangleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_triangleActionPerformed
@@ -352,10 +361,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
-        dimension3.setEditable(false);
-        dimension4.setEditable(false);
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(true);
+        dimension3.setEnabled(false);
+        dimension4.setEnabled(false);
         dimensionTh = 0;
         dimensionF = 0;
+        triangle.setActionCommand("triangle");
     }//GEN-LAST:event_triangleActionPerformed
 
     private void circleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circleActionPerformed
@@ -363,12 +375,14 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("N/A");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
-        dimension2.setEditable(false);
-        dimension3.setEditable(false);
-        dimension4.setEditable(false);
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(false);
+        dimension3.setEnabled(false);
+        dimension4.setEnabled(false);
         dimensionTw = 0;
         dimensionTh = 0;
         dimensionF = 0;
+        circle.setActionCommand("circle");
     }//GEN-LAST:event_circleActionPerformed
 
     private void donutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donutActionPerformed
@@ -376,6 +390,10 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Radius of Outer Circle:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(true);
+        dimension3.setEnabled(false);
+        dimension4.setEnabled(false);
         dimensionTh = 0;
         dimensionF = 0;
     }//GEN-LAST:event_donutActionPerformed
@@ -385,7 +403,12 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Base (b):");
         dimension3Prompt.setText("Height:");
         dimension4Prompt.setText("N/A");
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(true);
+        dimension3.setEnabled(true);
+        dimension4.setEnabled(false);
         dimensionF = 0;
+        trapezoid.setActionCommand("trapezoid");
     }//GEN-LAST:event_trapezoidActionPerformed
 
     private void houseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_houseActionPerformed
@@ -393,6 +416,11 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height of Roof:");
         dimension3Prompt.setText("Length of House");
         dimension4Prompt.setText("Width of House");
+        dimension1.setEnabled(true);
+        dimension2.setEnabled(true);
+        dimension3.setEnabled(true);
+        dimension4.setEnabled(true);
+        house.setActionCommand("house");
     }//GEN-LAST:event_houseActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -408,15 +436,30 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         priceI = Integer.parseInt(priceInput);
         
         try {
-            output.setText("");
-            if (dimensionO > 0 && dimensionTw > 0 && dimensionTh > 0 && dimensionF > 0 && 
-                    priceI > 0) {
+            if (dimension1.setEnabled(false)) {
                 
+            }
+//            output.setText("");
+            id ++;
+            if (buttonGroup.getSelection().getActionCommand().equals("rectangle"))  {
+                output.setText("test");
+                length = dimensionO;
+                width = dimensionTw;
+                Rectangle rectangle = new Rectangle (length, width, id);
+                shapes.add(rectangle);
             } else {
                 output.setText("Invalid input. Please enter a positive number.");
             }
+//            Shape shape = new Shape(firstN, lastN, annualSalary, year, month,
+//                    day, date, id);
+//            employees.add(employee);
+//            for (int i = 0; i < employees.size(); i++) {
+//                output.append(employees.get(i).toString());
+//            }
+            price.setEnabled(false);
         } catch (Exception e) {
-            output.setText("Invalid input. Please enter a positive number and fill out all required fields.");
+            output.setText("Invalid input. Please enter positive numbers and fill out all "
+                    + "required fields.");
         }
     }//GEN-LAST:event_addActionPerformed
 

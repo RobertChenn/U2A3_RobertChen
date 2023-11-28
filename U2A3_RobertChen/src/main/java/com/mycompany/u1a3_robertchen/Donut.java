@@ -11,6 +11,13 @@ package com.mycompany.u1a3_robertchen;
 public class Donut extends Shape{
     private double radius1;
     private double radius2;
+    private int id;
+    
+    public Donut(double radius1, double radius2, int id) {
+        this.radius1 = radius1;
+        this.radius2 = radius2;
+        this.id = id;
+    }
     
     @Override
     public double getArea() {

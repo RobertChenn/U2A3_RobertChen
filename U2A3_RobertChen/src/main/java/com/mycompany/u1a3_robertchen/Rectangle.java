@@ -11,6 +11,13 @@ package com.mycompany.u1a3_robertchen;
 public class Rectangle extends Shape{
     private double length;
     private double width;
+    private int id;
+    
+    public Rectangle(double length, double width, int id) {
+        this.length = length;
+        this.width = width;
+        this.id = id;
+    }
     
     @Override
     public double getArea() {
