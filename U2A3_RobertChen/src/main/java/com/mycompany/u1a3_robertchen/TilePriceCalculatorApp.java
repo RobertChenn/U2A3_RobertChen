@@ -31,6 +31,7 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
     String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput;
     double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, length, width;
     int id;
+    boolean checkD1, checkD2, checkD3, checkD4;
     ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     /**
@@ -435,10 +436,19 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimensionF = Integer.parseInt(dimension4Input);
         priceI = Integer.parseInt(priceInput);
         
+        if (dimension1.isEnabled()) {
+            checkD1 = dimension1.getText().isEmpty();
+        }
+        if (dimension2.isEnabled()) {
+            checkD2 = dimension2.getText().isEmpty();
+        }
+        if (dimension3.isEnabled()) {
+            checkD3 = dimension3.getText().isEmpty();
+        }
+        if (dimension4.isEnabled()) {
+            checkD4 = dimension4.getText().isEmpty();
+        }
         try {
-            if (dimension1.setEnabled(false)) {
-                
-            }
 //            output.setText("");
             id ++;
             if (buttonGroup.getSelection().getActionCommand().equals("rectangle"))  {
