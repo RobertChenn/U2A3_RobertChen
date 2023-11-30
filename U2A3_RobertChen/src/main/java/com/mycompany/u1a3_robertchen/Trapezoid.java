@@ -12,13 +12,11 @@ public class Trapezoid extends Shape{
     private double baseA;
     private double baseB;
     private double height;
-    private int id;
     
-    public Trapezoid(double baseA, double baseB, double height, int id) {
+    public Trapezoid(double baseA, double baseB, double height) {
         this.baseA = baseA;
         this.baseB = baseB;
         this.height = height;
-        this.id = id;
     }
     
     @Override

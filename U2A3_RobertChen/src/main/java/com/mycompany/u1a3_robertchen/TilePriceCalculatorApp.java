@@ -28,11 +28,12 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         group.add(trapezoid);
         group.add(house);
     }
-    String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput;
+    String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput, string;
     double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, length, width;
     int id;
     boolean checkD1, checkD2, checkD3, checkD4;
-    ArrayList<Shape> shapes = new ArrayList<Shape>();
+    ArrayList<String> shapes = new ArrayList<>();
+    ArrayList<Integer> ids = new ArrayList<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -425,6 +426,33 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
     }//GEN-LAST:event_houseActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        Shape shape = null;
+        if (checkEmpty()) {
+            if (buttonGroup.getSelection().getActionCommand().equals("rectangle")) {
+                shape = new Rectangle(dimensionO, dimensionTw);
+            } else if (buttonGroup.getSelection().getActionCommand().equals("parallelogram")) {
+                shape = new Parallelogram(dimensionO, dimensionTw);
+            } else if (buttonGroup.getSelection().getActionCommand().equals("triangle")) {
+                shape = new Triangle(dimensionO, dimensionTw);
+            } else if (buttonGroup.getSelection().getActionCommand().equals("circle")) {
+                shape = new Circle(dimensionO);
+            } else if (buttonGroup.getSelection().getActionCommand().equals("donut")) {
+                shape = new Donut(dimensionO, dimensionTw);
+            } else if (buttonGroup.getSelection().getActionCommand().equals("trapezoid")) {
+                shape = new Trapezoid(dimensionO, dimensionTw, dimensionTh);
+            } else if (buttonGroup.getSelection().getActionCommand().equals("house")) {
+                shape = new House(dimensionO, dimensionTw, dimensionTh, dimensionF);
+            }
+        }
+        if (shape != null) {
+            id ++;
+            if (buttonGroup.getSelection().getActionCommand().equals("rectangle"))  {
+                addTo(id, shape);
+            }
+        }
+    }//GEN-LAST:event_addActionPerformed
+    // Checks that the user entered everything correctly
+    public boolean checkEmpty() {
         dimension1Input = dimension1.getText();
         dimension2Input = dimension2.getText();
         dimension3Input = dimension3.getText();
@@ -436,43 +464,28 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimensionF = Integer.parseInt(dimension4Input);
         priceI = Integer.parseInt(priceInput);
         
-        if (dimension1.isEnabled()) {
-            checkD1 = dimension1.getText().isEmpty();
+        if (dimension1Input.isEmpty() || dimension2Input.isEmpty() || dimension3Input.isEmpty() || 
+                dimension4Input.isEmpty() || priceInput.isEmpty()) {
+            return false;
         }
-        if (dimension2.isEnabled()) {
-            checkD2 = dimension2.getText().isEmpty();
-        }
-        if (dimension3.isEnabled()) {
-            checkD3 = dimension3.getText().isEmpty();
-        }
-        if (dimension4.isEnabled()) {
-            checkD4 = dimension4.getText().isEmpty();
-        }
+        
         try {
-//            output.setText("");
-            id ++;
-            if (buttonGroup.getSelection().getActionCommand().equals("rectangle"))  {
-                output.setText("test");
-                length = dimensionO;
-                width = dimensionTw;
-                Rectangle rectangle = new Rectangle (length, width, id);
-                shapes.add(rectangle);
-            } else {
-                output.setText("Invalid input. Please enter a positive number.");
+            if (dimensionO <= 0 || dimensionTw <= 0 || dimensionTh <= 0 || dimensionF <= 0
+                    || priceI <= 0) {
+                return false;
             }
-//            Shape shape = new Shape(firstN, lastN, annualSalary, year, month,
-//                    day, date, id);
-//            employees.add(employee);
-//            for (int i = 0; i < employees.size(); i++) {
-//                output.append(employees.get(i).toString());
-//            }
-            price.setEnabled(false);
         } catch (Exception e) {
-            output.setText("Invalid input. Please enter positive numbers and fill out all "
-                    + "required fields.");
+            return false;
         }
-    }//GEN-LAST:event_addActionPerformed
-
+        return true;
+    }
+    
+    public void addTo(int id, Shape shape) {
+        string = shape.toString();
+        ids.add(id);
+        shapes.add(string + "ID: " + id);
+        list.append(string + "ID: " + id + "\n");
+    }
     /**
      * @param args the command line arguments
      */

@@ -10,11 +10,9 @@ package com.mycompany.u1a3_robertchen;
  */
 public class Circle extends Shape{
     private double radius;
-    private int id;
     
-    public Circle(double radius, int id) {
+    public Circle(double radius) {
         this.radius = radius;
-        this.id = id;
     }
     
     @Override

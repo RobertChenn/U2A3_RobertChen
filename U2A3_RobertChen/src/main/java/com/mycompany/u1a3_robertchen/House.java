@@ -13,14 +13,12 @@ public class House extends Shape{
     private double height;
     private double length;
     private double width;
-    private int id;
     
-    public House(double base, double height, double length, double width, int id) {
+    public House(double base, double height, double length, double width) {
         this.base = base;
         this.height = height;
         this.length = length;
         this.width = width;
-        this.id = id;
     }
     
     @Override
