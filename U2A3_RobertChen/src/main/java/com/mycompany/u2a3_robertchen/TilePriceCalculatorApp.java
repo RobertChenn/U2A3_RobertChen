@@ -615,6 +615,7 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         return true;
     }
     
+    // Adds variables to their ArrayList and prints out the list of shapes
     public void addTo(int id, Shape shape) {
         string = shape.toString();
         ids.add(id);
