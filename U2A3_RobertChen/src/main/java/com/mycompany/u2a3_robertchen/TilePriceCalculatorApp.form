@@ -27,21 +27,37 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="rectangle" min="-2" max="-2" attributes="0"/>
+                  <Component id="trapezoid" min="-2" max="-2" attributes="0"/>
+                  <Component id="parallelogram" min="-2" max="-2" attributes="0"/>
+                  <Component id="circle" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="donut" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="triangle" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                  <Component id="house" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="output" min="-2" pref="355" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="rectangle" min="-2" max="-2" attributes="0"/>
-                          <Component id="trapezoid" min="-2" max="-2" attributes="0"/>
-                          <Component id="parallelogram" min="-2" max="-2" attributes="0"/>
-                          <Component id="circle" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="donut" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="triangle" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                          <Component id="house" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="pricePrompt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="price" min="-2" pref="93" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="removeIdPrompt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="removeId" min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="remove" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
@@ -65,27 +81,18 @@
                                       <Component id="dimension4" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="110" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="remove" min="-2" max="-2" attributes="0"/>
-                                  <Component id="add" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="add" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="pricePrompt" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="price" min="-2" pref="93" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="output" min="-2" pref="355" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="title" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="title" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -130,42 +137,45 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dimension1Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dimension1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dimension2Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dimension2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="add" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dimension3Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dimension3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dimension1Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dimension1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="dimension2Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dimension2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="dimension4Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="dimension4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="dimension3Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dimension3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="remove" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="add" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pricePrompt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="price" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dimension4Prompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dimension4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="price" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pricePrompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="removeIdPrompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="removeId" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="remove" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Component id="output" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="3" max="-2" attributes="0"/>
@@ -176,25 +186,22 @@
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jScrollPane1" min="-2" pref="210" max="-2" attributes="0"/>
-                              <EmptySpace pref="35" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane1" min="-2" pref="210" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="calculate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="totalArea" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="totalAreaPrompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalArea" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="totalCost" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="totalCostPrompt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalCost" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -321,11 +328,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Calculate"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calculateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="totalArea">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="totalAreaPrompt">
@@ -336,8 +345,10 @@
     <Component class="javax.swing.JTextField" name="totalCost">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalCostActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="totalCostPrompt">
       <Properties>
@@ -366,7 +377,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="pricePrompt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Price per Metre Squared:"/>
+        <Property name="text" type="java.lang.String" value="Price (m&#xb2;):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="dimension1">
@@ -391,6 +402,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="output">
       <Properties>
@@ -400,6 +414,16 @@
     <Component class="javax.swing.JButton" name="clear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clear"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="removeId">
+    </Component>
+    <Component class="javax.swing.JLabel" name="removeIdPrompt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Id to Remove Shape:"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -1,7 +1,9 @@
+package com.mycompany.u2a3_robertchen;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+/*
 package com.mycompany.u1a3_robertchen;
 
 /**
@@ -17,6 +19,14 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
     /**
      * Creates new form TilePrice
      */
+    String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput, string, selected, removeID;
+    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, length, width, tArea = 0, tCost = 0;
+    int id = 0, deleteId, deleteID;
+    boolean checkD1, checkD2, checkD3, checkD4;
+    ArrayList<String> shapes = new ArrayList<>();
+    ArrayList<Integer> ids = new ArrayList<>();
+    ArrayList<Double> areas = new ArrayList<>();
+    
     public TilePriceCalculatorApp() {
         initComponents();
         ButtonGroup group = new ButtonGroup();
@@ -28,12 +38,6 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         group.add(trapezoid);
         group.add(house);
     }
-    String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput, string;
-    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, length, width;
-    int id;
-    boolean checkD1, checkD2, checkD3, checkD4;
-    ArrayList<String> shapes = new ArrayList<>();
-    ArrayList<Integer> ids = new ArrayList<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,6 +80,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         remove = new javax.swing.JButton();
         output = new javax.swing.JTextField();
         clear = new javax.swing.JButton();
+        removeId = new javax.swing.JTextField();
+        removeIdPrompt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,14 +149,22 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         listSubHeading.setText("Tiles in the Floor");
 
         calculate.setText("Calculate");
+        calculate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateActionPerformed(evt);
+            }
+        });
 
         totalArea.setEditable(false);
-        totalArea.setEnabled(false);
 
         totalAreaPrompt.setText("Total Area:");
 
         totalCost.setEditable(false);
-        totalCost.setEnabled(false);
+        totalCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalCostActionPerformed(evt);
+            }
+        });
 
         totalCostPrompt.setText("Total Cost:");
 
@@ -162,7 +176,7 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
 
         dimension4Prompt.setText("Dimension 4:");
 
-        pricePrompt.setText("Price per Metre Squared:");
+        pricePrompt.setText("Price (m²):");
 
         add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -172,29 +186,54 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         });
 
         remove.setText("Remove");
+        remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeActionPerformed(evt);
+            }
+        });
 
         output.setEditable(false);
 
         clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+
+        removeIdPrompt.setText("Id to Remove Shape:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rectangle)
+                    .addComponent(trapezoid)
+                    .addComponent(parallelogram)
+                    .addComponent(circle)
+                    .addComponent(donut)
+                    .addComponent(triangle, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(house, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 58, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rectangle)
-                            .addComponent(trapezoid)
-                            .addComponent(parallelogram)
-                            .addComponent(circle)
-                            .addComponent(donut)
-                            .addComponent(triangle, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(house, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pricePrompt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(removeIdPrompt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(removeId, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(remove))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -213,20 +252,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
                                         .addComponent(dimension4Prompt)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(dimension4)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(remove)
-                                    .addComponent(add)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pricePrompt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(title)
-                        .addGap(121, 121, 121)))
-                .addGap(50, 50, 50))
+                                .addGap(58, 58, 58)
+                                .addComponent(add)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(title)
+                .addGap(171, 171, 171))
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,33 +293,36 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(dimension1Prompt)
-                                    .addComponent(dimension1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(dimension2Prompt)
-                                    .addComponent(dimension2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8))
-                            .addComponent(add, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dimension3Prompt)
-                            .addComponent(dimension3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                            .addComponent(dimension1Prompt)
+                            .addComponent(dimension1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dimension2Prompt)
+                            .addComponent(dimension2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(dimension4Prompt)
-                                .addComponent(dimension4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(remove)))
-                        .addGap(18, 18, 18)
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(dimension3Prompt)
+                                    .addComponent(dimension3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(add)))
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pricePrompt)
-                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
+                            .addComponent(dimension4Prompt)
+                            .addComponent(dimension4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pricePrompt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(removeIdPrompt)
+                            .addComponent(removeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(remove))
+                        .addGap(18, 18, 18)
                         .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,20 +332,18 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
                             .addComponent(clear))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(calculate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(totalArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(totalAreaPrompt))
-                                .addGap(55, 55, 55)
+                                    .addComponent(totalAreaPrompt)
+                                    .addComponent(totalArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(60, 60, 60)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(totalCostPrompt))
-                                .addGap(47, 47, 47))))
+                                    .addComponent(totalCostPrompt)
+                                    .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(45, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(rectangle)
@@ -337,13 +370,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Width:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setText("");
+        dimension4.setText("");
         dimension1.setEnabled(true);
         dimension2.setEnabled(true);
         dimension3.setEnabled(false);
         dimension4.setEnabled(false);
-        dimensionTh = 0;
-        dimensionF = 0;
-        rectangle.setActionCommand("rectangle");
+        selected = "rectangle";
     }//GEN-LAST:event_rectangleActionPerformed
 
     private void parallelogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parallelogramActionPerformed
@@ -351,11 +384,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setText("");
+        dimension4.setText("");
         dimension1.setEnabled(true);
         dimension2.setEnabled(true);
         dimension3.setEnabled(false);
         dimension4.setEnabled(false);
-        parallelogram.setActionCommand("parallelogram");
+        selected = "parallelogram";
     }//GEN-LAST:event_parallelogramActionPerformed
 
     private void triangleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_triangleActionPerformed
@@ -363,13 +398,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Height:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setText("");
+        dimension4.setText("");
         dimension1.setEnabled(true);
         dimension2.setEnabled(true);
         dimension3.setEnabled(false);
         dimension4.setEnabled(false);
-        dimensionTh = 0;
-        dimensionF = 0;
-        triangle.setActionCommand("triangle");
+        selected = "triangle";
     }//GEN-LAST:event_triangleActionPerformed
 
     private void circleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circleActionPerformed
@@ -377,14 +412,14 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("N/A");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension2.setText("");
+        dimension3.setText("");
+        dimension4.setText("");
         dimension1.setEnabled(true);
         dimension2.setEnabled(false);
         dimension3.setEnabled(false);
         dimension4.setEnabled(false);
-        dimensionTw = 0;
-        dimensionTh = 0;
-        dimensionF = 0;
-        circle.setActionCommand("circle");
+        selected = "circle";
     }//GEN-LAST:event_circleActionPerformed
 
     private void donutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donutActionPerformed
@@ -392,12 +427,13 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Radius of Outer Circle:");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
+        dimension3.setText("");
+        dimension4.setText("");
         dimension1.setEnabled(true);
         dimension2.setEnabled(true);
         dimension3.setEnabled(false);
         dimension4.setEnabled(false);
-        dimensionTh = 0;
-        dimensionF = 0;
+        selected = "donut";
     }//GEN-LAST:event_donutActionPerformed
 
     private void trapezoidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trapezoidActionPerformed
@@ -405,12 +441,12 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2Prompt.setText("Base (b):");
         dimension3Prompt.setText("Height:");
         dimension4Prompt.setText("N/A");
+        dimension4.setText("");
         dimension1.setEnabled(true);
         dimension2.setEnabled(true);
         dimension3.setEnabled(true);
         dimension4.setEnabled(false);
-        dimensionF = 0;
-        trapezoid.setActionCommand("trapezoid");
+        selected = "trapezoid";
     }//GEN-LAST:event_trapezoidActionPerformed
 
     private void houseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_houseActionPerformed
@@ -422,35 +458,96 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension2.setEnabled(true);
         dimension3.setEnabled(true);
         dimension4.setEnabled(true);
-        house.setActionCommand("house");
+        selected = "house";
     }//GEN-LAST:event_houseActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         Shape shape = null;
+        checkEmpty();
         if (checkEmpty()) {
-            if (buttonGroup.getSelection().getActionCommand().equals("rectangle")) {
+            price.setEnabled(false);
+            if (selected.equals("rectangle")) {
                 shape = new Rectangle(dimensionO, dimensionTw);
-            } else if (buttonGroup.getSelection().getActionCommand().equals("parallelogram")) {
+            } else if (selected.equals("parallelogram")) {
                 shape = new Parallelogram(dimensionO, dimensionTw);
-            } else if (buttonGroup.getSelection().getActionCommand().equals("triangle")) {
+            } else if (selected.equals("triangle")) {
                 shape = new Triangle(dimensionO, dimensionTw);
-            } else if (buttonGroup.getSelection().getActionCommand().equals("circle")) {
+            } else if (selected.equals("circle")) {
                 shape = new Circle(dimensionO);
-            } else if (buttonGroup.getSelection().getActionCommand().equals("donut")) {
+            } else if (selected.equals("donut")) {
                 shape = new Donut(dimensionO, dimensionTw);
-            } else if (buttonGroup.getSelection().getActionCommand().equals("trapezoid")) {
+            } else if (selected.equals("trapezoid")) {
                 shape = new Trapezoid(dimensionO, dimensionTw, dimensionTh);
-            } else if (buttonGroup.getSelection().getActionCommand().equals("house")) {
+            } else if (selected.equals("house")) {
                 shape = new House(dimensionO, dimensionTw, dimensionTh, dimensionF);
             }
-        }
-        if (shape != null) {
-            id ++;
-            if (buttonGroup.getSelection().getActionCommand().equals("rectangle"))  {
+            
+            if (shape != null) {
+                id ++;
+                tArea += shape.getArea();
+                areas.add(shape.getArea());
                 addTo(id, shape);
-            }
+            } 
+        } else {
+            output.setText("Invalid input. Please make sure you have filled out all required fields with the correct information and chose a shape");
         }
     }//GEN-LAST:event_addActionPerformed
+
+    private void totalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalCostActionPerformed
+
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+        removeID = removeId.getText();
+        output.setText("");
+        
+        try {
+            deleteId = Integer.parseInt(removeID);
+            deleteID = -1;
+            
+            for (int i = 0; i < ids.size(); i++) {
+                if (ids.get(i) == deleteId) {
+                    deleteID = i;
+                    break;
+                }
+            }
+            
+            if (deleteID != -1) {
+                removeId.setText("");
+                shapes.remove(deleteID);
+                tArea -= areas.get(deleteID);
+                areas.remove(deleteID);
+                ids.remove(deleteID);
+                list.setText("");
+                id = ids.size();
+                
+                for (int x = 0; x < shapes.size(); x++) {
+                    list.append(shapes.get(x) + "\n\n");
+                }
+            } else {
+                output.setText("Invalid input. Please enter a valid Id");
+            }
+        } catch (Exception e) {
+            output.setText("Invalid input. Please enter a valid Id");
+        }
+    }//GEN-LAST:event_removeActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        shapes.clear();
+        areas.clear();
+        ids.clear();
+        list.setText("");
+        id = 1;
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
+        for (int i = 0; i < shapes.size(); i++) {
+            tArea += areas.get(i);
+            tCost = tArea * priceI;
+        }
+        totalArea.setText(Double.toString(Math.round(tArea * 100.0) / 100.0) + "m²");
+        totalCost.setText("$" + Double.toString(Math.round(tCost * 100.0) / 100.0));
+    }//GEN-LAST:event_calculateActionPerformed
     // Checks that the user entered everything correctly
     public boolean checkEmpty() {
         dimension1Input = dimension1.getText();
@@ -458,21 +555,56 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
         dimension3Input = dimension3.getText();
         dimension4Input = dimension4.getText();
         priceInput = price.getText();
-        dimensionO = Integer.parseInt(dimension1Input);
-        dimensionTw = Integer.parseInt(dimension2Input);
-        dimensionTh = Integer.parseInt(dimension3Input);
-        dimensionF = Integer.parseInt(dimension4Input);
-        priceI = Integer.parseInt(priceInput);
-        
-        if (dimension1Input.isEmpty() || dimension2Input.isEmpty() || dimension3Input.isEmpty() || 
-                dimension4Input.isEmpty() || priceInput.isEmpty()) {
-            return false;
-        }
-        
         try {
-            if (dimensionO <= 0 || dimensionTw <= 0 || dimensionTh <= 0 || dimensionF <= 0
-                    || priceI <= 0) {
+            priceI = Double.parseDouble(priceInput);
+            
+            if (priceI <= 0) {
                 return false;
+            }
+            if (selected.equals("rectangle")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                dimensionTw = Double.parseDouble(dimension2Input);
+                if (dimensionO <= 0 || dimensionTw <= 0) {
+                    return false;
+                }
+            } else if (selected.equals("parallelogram")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                dimensionTw = Double.parseDouble(dimension2Input);
+                if (dimensionO <= 0 || dimensionTw <= 0) {
+                    return false;
+                }
+            } else if (selected.equals("triangle")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                dimensionTw = Double.parseDouble(dimension2Input);
+                if (dimensionO <= 0 || dimensionTw <= 0) {
+                    return false;
+                }
+            } else if (selected.equals("circle")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                if (dimensionO <= 0) {
+                    return false;
+                }
+            } else if (selected.equals("donut")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                dimensionTw = Double.parseDouble(dimension2Input);
+                if (dimensionO <= 0 || dimensionTw <= 0) {
+                    return false;
+                }
+            } else if (selected.equals("trapezoid")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                dimensionTw = Double.parseDouble(dimension2Input);
+                dimensionTh = Double.parseDouble(dimension3Input);
+                if (dimensionO <= 0 || dimensionTw <= 0 || dimensionTh <= 0) {
+                    return false;
+                }
+            } else if (selected.equals("house")) {
+                dimensionO = Double.parseDouble(dimension1Input);
+                dimensionTw = Double.parseDouble(dimension2Input);
+                dimensionTh = Double.parseDouble(dimension3Input);
+                dimensionF = Double.parseDouble(dimension4Input);
+                if (dimensionO <= 0 || dimensionTw <= 0 || dimensionTh <= 0 || dimensionF <= 0) {
+                    return false;
+                }
             }
         } catch (Exception e) {
             return false;
@@ -483,8 +615,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
     public void addTo(int id, Shape shape) {
         string = shape.toString();
         ids.add(id);
-        shapes.add(string + "ID: " + id);
-        list.append(string + "ID: " + id + "\n");
+        shapes.add(string + "\nID: " + id);
+        list.append(string + "\nID: " + id + "\n\n");
     }
     /**
      * @param args the command line arguments
@@ -550,6 +682,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
     private javax.swing.JLabel pricePrompt;
     private javax.swing.JToggleButton rectangle;
     private javax.swing.JButton remove;
+    private javax.swing.JTextField removeId;
+    private javax.swing.JLabel removeIdPrompt;
     private javax.swing.JLabel title;
     private javax.swing.JTextField totalArea;
     private javax.swing.JLabel totalAreaPrompt;

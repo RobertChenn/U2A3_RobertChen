@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.u1a3_robertchen;
+package com.mycompany.u2a3_robertchen;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Trapezoid extends Shape{
     
     @Override
     public String toString() {
-        return "Trapezoid:\n" + "ID: " + "\nBase (a): " + baseA + "\nBase (b): " 
-                + baseB + "\nHeight: " + height + "\nArea" + getArea();
+        return "Trapezoid:" + "\nBase (a): " + baseA + "\nBase (b): " 
+                + baseB + "\nHeight: " + height + "\nArea: " + getArea();
     }
 }
