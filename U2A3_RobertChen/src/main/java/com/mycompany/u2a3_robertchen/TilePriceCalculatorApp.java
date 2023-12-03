@@ -20,9 +20,8 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
      * Creates new form TilePrice
      */
     String dimension1Input, dimension2Input, dimension3Input, dimension4Input, priceInput, string, selected, removeID;
-    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, length, width, tArea = 0, tCost = 0;
+    double dimensionO, dimensionTw, dimensionTh, dimensionF, priceI, tArea = 0, tCost = 0;
     int id = 0, deleteId, deleteID;
-    boolean checkD1, checkD2, checkD3, checkD4;
     ArrayList<String> shapes = new ArrayList<>();
     ArrayList<Integer> ids = new ArrayList<>();
     ArrayList<Double> areas = new ArrayList<>();
