@@ -408,7 +408,7 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
     }//GEN-LAST:event_triangleActionPerformed
 
     private void circleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circleActionPerformed
-        dimension1Prompt.setText("Radius of Inner Circle:");
+        dimension1Prompt.setText("Radius:");
         dimension2Prompt.setText("N/A");
         dimension3Prompt.setText("N/A");
         dimension4Prompt.setText("N/A");
@@ -475,7 +475,11 @@ public class TilePriceCalculatorApp extends javax.swing.JFrame {
             } else if (selected.equals("circle")) {
                 shape = new Circle(dimensionO);
             } else if (selected.equals("donut")) {
-                shape = new Donut(dimensionO, dimensionTw);
+                if (dimensionTw > dimensionO) {
+                    shape = new Donut(dimensionO, dimensionTw);
+                } else {
+                    output.setText("Inner radius cannot be greater than outer radius");
+                }
             } else if (selected.equals("trapezoid")) {
                 shape = new Trapezoid(dimensionO, dimensionTw, dimensionTh);
             } else if (selected.equals("house")) {

@@ -19,12 +19,12 @@ public class Donut extends Shape{
     
     @Override
     public double getArea() {
-        return (Math.PI * (radius1 * radius1)) - (Math.PI * (radius2 * radius2));
+        return (Math.PI * (radius2 * radius2)) - (Math.PI * (radius1 * radius1));
     }
     
     @Override
     public String toString() {
-        return "Donut:" + "\nInner Radius: " + radius2 + "\nOuter Radius: " + radius1 + 
-                "\nArea: " + getArea();
+        return "Donut:" + "\nInner Radius: " + Math.round(radius1 * 100.0) / 100.0 + "m²\nOuter Radius: " + Math.round(radius2 * 100.0) / 100.0 
+                + "m²\nArea: " + Math.round(getArea() * 100.0) / 100.0 + "m²";
     }
 }

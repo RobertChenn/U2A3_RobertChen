@@ -24,7 +24,7 @@ public class Triangle extends Shape{
     
     @Override
     public String toString() {
-        return "Triangle:" + "\nBase: " + base + "\nHeight: " 
-                + height + "\nArea: " + getArea();
+        return "Triangle:" + "\nBase: " + Math.round(base * 100.0) / 100.0 + "m²\nHeight: " 
+                + Math.round(height * 100.0) / 100.0 + "m²\nArea: " + Math.round(getArea() * 100.0) / 100.0 + "m²";
     }
 }

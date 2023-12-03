@@ -26,7 +26,8 @@ public class Trapezoid extends Shape{
     
     @Override
     public String toString() {
-        return "Trapezoid:" + "\nBase (a): " + baseA + "\nBase (b): " 
-                + baseB + "\nHeight: " + height + "\nArea: " + getArea();
+        return "Trapezoid:" + "\nBase (a): " + Math.round(baseA * 100.0) / 100.0 + "m²\nBase (b): " 
+                + Math.round(baseB * 100.0) / 100.0 + "m²\nHeight: " + Math.round(height * 100.0) / 100.0 + "m²\nArea: " 
+                + Math.round(getArea() * 100.0) / 100.0 + "m²";
     }
 }

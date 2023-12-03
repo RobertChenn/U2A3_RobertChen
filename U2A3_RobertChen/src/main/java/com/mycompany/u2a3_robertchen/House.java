@@ -28,7 +28,8 @@ public class House extends Shape{
     
     @Override
     public String toString() {
-        return "House:" + "\nRoof Base: " + base + "\nRoof Height: " 
-                + height + "\nBuilding Width: " + width + "\nArea: " + getArea();
+        return "House:" + "\nRoof Base: " + Math.round(base * 100.0) / 100.0 + "m²\nRoof Height: " 
+                + Math.round(height * 100.0) / 100.0 + "m²\nBuilding Width: " + Math.round(width * 100.0) / 100.0 + "m²\nArea: " 
+                + Math.round(getArea() * 100.0) / 100.0 + "m²";
     }
 }

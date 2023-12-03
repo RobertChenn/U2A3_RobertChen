@@ -24,6 +24,7 @@ public class Rectangle extends Shape{
     
     @Override
     public String toString() {
-        return "Rectangle:" + "\nLength: " + length + "\nWidth: " + width + "\nArea: " + getArea();
+        return "Rectangle:" + "\nLength: " + Math.round(length * 100.0) / 100.0 + "m²\nWidth: " + Math.round(width * 100.0) / 100.0 
+                + "m²\nArea: " + Math.round(getArea() * 100.0) / 100.0 + "m²";
     }
 }

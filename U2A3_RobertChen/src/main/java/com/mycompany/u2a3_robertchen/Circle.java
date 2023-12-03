@@ -22,6 +22,6 @@ public class Circle extends Shape{
     
     @Override
     public String toString() {
-        return "Circle:" + "\nRadius: " + radius + "\nArea: " + getArea();
+        return "Circle:" + "\nRadius: " + Math.round(radius * 100.0) / 100.0 + "m²\nArea: " + Math.round(getArea() * 100.0) / 100.0 + "m²";
     }
 }
